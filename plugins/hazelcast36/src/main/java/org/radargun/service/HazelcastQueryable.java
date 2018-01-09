@@ -194,10 +194,16 @@ public class HazelcastQueryable implements Queryable {
             if (limit < 0) finalPredicate = new PagingPredicate(predicate, comparator, Integer.MAX_VALUE);
             else finalPredicate = new PagingPredicate(predicate, comparator, limit);
          }
-         String[] stringProjection = new String[projection.length];
-         for (int i = 0; i < projection.length; i++) {
-            stringProjection[i] = projection[i].attribute;
+
+
+         String[] stringProjection = null; // = new String[projection.length];
+         if(projection != null) {
+            stringProjection = new String[projection.length];
+            for (int i = 0; i < projection.length; i++) {
+               stringProjection[i] = projection[i].attribute;
+            }
          }
+
          return new HazelcastQuery(finalPredicate, offset, stringProjection);
       }
    }
