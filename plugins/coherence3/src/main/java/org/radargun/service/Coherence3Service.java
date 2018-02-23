@@ -48,7 +48,7 @@ public class Coherence3Service implements Lifecycle, Clustered {
    @Property(name = "cache", doc = "Name of the default cache. Default is 'testCache'.")
    protected String cacheName = "testCache";
 
-   @Property(doc = "Attributes that should be indexed, in form cache:attribute,cache:attribute. By default, nothing is indexed.",
+   @Property(name="index", doc = "Attributes that should be indexed, in form cache:attribute,cache:attribute. By default, nothing is indexed.",
       converter = IndexedColumnsConverter.class)
    protected List<IndexedColumn> indexedColumns = Collections.EMPTY_LIST;
 
